@@ -5,6 +5,10 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 First, run the development server:
 
 ```bash
+# 1. 安裝依賴：
+npm install
+
+# 2. 執行伺服器：
 npm run dev
 # or
 yarn dev

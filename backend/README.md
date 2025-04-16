@@ -13,12 +13,12 @@
 ## 啟動方式
 
 ```bash
-# 1. 安裝依賴：
-npm install
-
-
-# 2. 修改 .env 檔案，加上PostgreSQL密碼
+# 1. 修改 .env 檔案，加上PostgreSQL密碼
 DATABASE_URL="postgresql://postgres:你的密碼@localhost:5432/vesluneir"
+
+
+# 2. 安裝依賴：
+npm install
 
 
 # 3. 執行伺服器：
