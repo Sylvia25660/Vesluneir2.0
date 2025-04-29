@@ -1,6 +1,72 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const cards = [
+  {
+    icon: "/icons/How1profile.png", // 請換成對應的小圖示路徑
+    title: "Create Your Profile",
+    subtitle: "Show the world what makes you 'you'.",
+    description: "Upload your work and share your unique style with the world.",
+  },
+  {
+    icon: "/icons/How2search.png",
+    title: "Get Discovered",
+    subtitle: "Let the right people find your genius.",
+    description: "Let brands and editors find you through tags, genres, and locations.",
+  },
+  {
+    icon: "/icons/How3link.png",
+    title: "Connect & Collaborate",
+    subtitle: "Build something with someone real.",
+    description: "Talk directly. Get briefed. Make things happen.",
+  },
+  {
+    icon: "/icons/How4plant.png",
+    title: "Build Your Presence",
+    subtitle: "Turn attention into opportunity.",
+    description: "Grow your creative profile and get matched to real opportunities.",
+  },
+];
+
+const articles = [
+  {
+    image: "/images/journal1.jpg",
+    title: "Fuji Recipes for Cinematic Street Shots",
+    description: "How I used in-camera settings to get that moody, filmic look—no post-editing needed.",
+    author: "Lena Okamoto",
+  },
+  {
+    image: "/images/journal2.jpg",
+    title: "The Language of Posing: Guiding Without Controlling",
+    description: "How I work with models to bring out their natural presence through direction, not dictation.",
+    author: "Elliot Reyes",
+  },
+  {
+    image: "/images/journal3.jpg",
+    title: "Frames from Nowhere: Photos Without a Plan",
+    description: "What happens when you shoot with no script, no timeline, and no pressure.",
+    author: "Nico Marek",
+  },
+  {
+    image: "/images/journal4.jpg",
+    title: "Architecting Light in Still Life Photography",
+    description: "From Tabletop to Narrative: Using light to build meaning in still life.",
+    author: "Margo Lin",
+  },
+  {
+    image: "/images/journal5.jpg",
+    title: "Travel Photography Isn’t a Checklist: Document, Don’t Brag",
+    description: "Get off the Grid—and let your photos tell the stories you didn’t plan.",
+    author: "Theo Vargas",
+  },
+  {
+    image: "/images/journal6.jpg",
+    title: "The Sound Behind the Lens: Photographing the Silent Echoes",
+    description: "No sound, just resonance—how to visually capture auditory atmosphere.",
+    author: "Jun Sasaki",
+  },
+];
+
 export default function Home() {
   return (
     <>
@@ -120,10 +186,13 @@ export default function Home() {
 
               {/* 圖片區：左邊 */}
               <div className="flex-1">
-                <img
-                  src="/images/intro-camera.jpg"
-                  alt="Photographer"
-                  className="w-full max-w-lg mx-auto rounded"
+                <video
+                  src="/videos/HeadVideo.mp4"
+                  className="w-full rounded object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                 />
               </div>
             </div>
@@ -135,7 +204,7 @@ export default function Home() {
               {/* 圖片區：左邊 */}
               <div className="flex-1">
                 <img
-                  src="/images/intro-camera.jpg"
+                  src="/images/OueMission.jpg"
                   alt="Photographer"
                   className="w-full max-w-lg mx-auto rounded"
                 />
@@ -335,6 +404,210 @@ export default function Home() {
             </div>
           </section>
 
+          <section className="text-white py-32 px-6">
+            {/* 頂部圖片加標題 */}
+            <div className="max-w-5xl mx-auto text-center mb-24">
+              <div className="relative w-full h-96">
+                <Image
+                  src="/images/howitwork.jpg" // 請換成你的山的圖片路徑
+                  alt="Mountain"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg"
+                />
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40">
+                  <h2 className="text-5xl font-serif mb-2">How It Works?</h2>
+                  <p className="text-sm italic text-white/80">Journey to collaborations that make meaningful works happen.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* 四個卡片區塊 */}
+            <ul className="max-w-4xl mx-auto flex flex-col gap-10">
+              {/* 單一卡片 */}
+              {cards.map((card, idx) => (
+                <li key={idx} className="bg-black/30 p-8 rounded-lg border border-white/10">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <div className="flex items-center gap-3 mb-2">
+                        <Image src={card.icon} alt="Icon" width={24} height={24} />
+                        <h3 className="text-lg font-semibold">{card.title}</h3>
+                      </div>
+                      <p className="text-sm text-white/70 mb-4">{card.subtitle}</p>
+                      <p className="text-sm text-white/60">{card.description}</p>
+                    </div>
+                    <a href="#" className="text-sm underline hover:text-white/70">» GO</a>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="text-white py-32 px-6">
+            {/* 標題區塊 */}
+            <div className="max-w-5xl mx-auto text-center mb-24">
+              <h2 className="text-5xl font-serif mb-4">Frame by Frame</h2>
+              <p className="text-sm italic text-white/80">
+                Thoughts, tips, and moments from the people shaping our visual world—one frame at a time.
+              </p>
+            </div>
+
+            {/* 文章卡片區塊 */}
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+              {articles.map((article, idx) => (
+                <div key={idx} className="flex flex-col">
+                  <div className="relative w-full h-48 mb-4">
+                    <Image
+                      src={article.image}
+                      alt={article.title}
+                      layout="fill"
+                      objectFit="cover"
+                      className="rounded"
+                    />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2 leading-tight">{article.title}</h3>
+                  <p className="text-sm text-white/70 mb-2 leading-snug">{article.description}</p>
+                  <p className="text-sm text-white/50 mb-6">- by {article.author}</p>
+                  <a href="#" className="text-sm underline self-start hover:text-white/70">» view more</a>
+                </div>
+              ))}
+            </div>
+
+            {/* Go To Journal 按鈕 */}
+            <div className="flex justify-center mt-20">
+              <a
+                href="#"
+                className="border border-white/50 rounded-full px-8 py-3 text-sm hover:bg-white hover:text-black transition"
+              >
+                Go To Journal »
+              </a>
+            </div>
+          </section>
+
+          <section className="text-white py-32 px-6">
+            {/* 標題區塊 */}
+            <div className="max-w-4xl mx-auto text-center mb-24">
+              <h2 className="text-5xl font-serif leading-tight mb-6">
+                When words fail,<br />
+                the image remains.
+              </h2>
+              <p className="text-sm italic text-white/80 max-w-xl mx-auto">
+                Join us and tell silent stories through your lens. Photography is not just about technique—it’s a way of seeing the world.
+              </p>
+            </div>
+
+            {/* 圖片堆疊區塊 */}
+            <div className="relative max-w-6xl mx-auto h-[1000px] mb-20 z-10">
+              {/* 中間最大張 */}
+              <div className="absolute top-1/2 left-1/2 w-160 h-180 -translate-x-1/2 -translate-y-1/2">
+                <Image
+                  src="/images/CTA2.jpg" // 換成你的中央圖片
+                  alt="Main Photo"
+                  layout="fill"
+                  objectFit="cover"
+                  quality={100}
+                />
+              </div>
+
+              {/* 右上小圖 */}
+              <div className="absolute top-18 right-30 w-60 h-80">
+                <Image
+                  src="/images/CTA4.jpg"
+                  alt="Top Right"
+                  layout="fill"
+                  objectFit="cover"
+                  quality={100}
+                />
+              </div>
+
+              {/* 左下小圖 */}
+              <div className="absolute bottom-50 left-15 w-65 h-50 z-10">
+                <Image
+                  src="/images/CTA1.jpg"
+                  alt="Bottom Left"
+                  layout="fill"
+                  objectFit="cover"
+                  quality={100}
+                />
+              </div>
+
+              {/* 右下最小張 */}
+              <div className="absolute bottom-20 right-55 w-50 h-30 z-10">
+                <Image
+                  src="/images/CTA3.jpg"
+                  alt="Bottom Right"
+                  layout="fill"
+                  objectFit="cover"
+                  quality={100}
+                />
+              </div>
+            </div>
+
+            {/* 按鈕區塊 */}
+            <div className="flex justify-center gap-10">
+              <a
+                href="#"
+                className="bg-white text-black rounded-full px-8 py-3 text-sm hover:bg-gray-300 transition"
+              >
+                Join Now
+              </a>
+              <a
+                href="#"
+                className="border border-white rounded-full px-8 py-3 text-sm hover:bg-white hover:text-black transition"
+              >
+                View Gallery
+              </a>
+            </div>
+          </section>
+
+          <footer className="relative text-white pt-28 pb-28 px-6">
+            {/* 背景圖片 */}
+            <Image
+              src="/images/footer.jpg" // 請替換為你的背景圖
+              alt="Footer Background"
+              fill
+              className="object-cover opacity-20"
+            />
+
+            {/* 遮罩 */}
+            <div className="absolute inset-0 bg-black/60" />
+
+            <div className="relative max-w-7xl mx-auto z-10 grid grid-cols-1 md:grid-cols-3 gap-12 items-end">
+              {/* 左下詩句 */}
+              <div className="text-sm italic text-white/60">
+                In the silence between frames,<br />
+                the story breathes.
+              </div>
+
+              {/* 中間 logo & 社群 */}
+              <div className="flex flex-col items-center gap-4 text-center">
+                <div className="flex gap-4">
+                  {/* Icon images 請換成你的實際 icon 圖片路徑 */}
+                  <a href="#"><Image src="/icons/FT1instagram.png" alt="Instagram" width={20} height={20} /></a>
+                  <a href="#"><Image src="/icons/FT2facebook.png" alt="Facebook" width={20} height={20} /></a>
+                  <a href="#"><Image src="/icons/FT3twitter-alt.png" alt="X (Twitter)" width={20} height={20} /></a>
+                  <a href="#"><Image src="/icons/FT4letter.png" alt="Email" width={20} height={20} /></a>
+                </div>
+                <div className="relative w-48 h-12">
+                  <Image
+                    src="/icons/LogoVS.png"
+                    alt="Vesluneir Logo"
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </div>
+                <div className="text-xs text-white/70">© 2025 Vesluneir. All rights reserved.</div>
+              </div>
+
+              {/* 右側連結 */}
+              <div className="flex flex-col items-end gap-2 text-sm text-white/80">
+                <a href="#">About Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">FAQ</a>
+              </div>
+            </div>
+          </footer>
         </main>
       </div>
     </>
